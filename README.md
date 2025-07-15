@@ -1,3 +1,14 @@
+
+# Rentalkantor
+## Requirement 
+
+- node js v20. <br>
+- npm v10.8.2 <br>
+- Framework Next JS v15.3.5 <br>
+- Tailwind v3.4.4 <br>
+- Template shyakit : firstoffice <br>
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
