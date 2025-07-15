@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import Navbar from "@/components/Navbar";
 // import CitiesSection from "@/components/CitiesSection";
 import CitiesSection from "@/features/cities/sections/CitiesSection";
@@ -112,7 +112,8 @@ export default function Home() {
       </div>
     </div>
   </header>
-  <CitiesSection /> 
+  {/* <CitiesSection />  */}
+  <CitiesSection />
   <section
     id="Benefits"
     className="flex items-center justify-center w-[1015px] mx-auto gap-[100px] mt-[100px]"
