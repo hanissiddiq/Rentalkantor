@@ -1,3 +1,19 @@
+
+# Rentalkantor
+## Requirement 
+
+- node js v20. <br>
+- npm v10.8.2 <br>
+- Framework Next JS v15.3.5 <br>
+- Tailwind v3.4.4 <br>
+- Template shyakit : firstoffice <br>
+
+akses link city : ```http://localhost:3000/city/jakarta-pusat``` <br>
+
+untuk Route silahkan menggunakan folder ```app``` <br>
+untuk Logic, data dan UI silahkan menggunakan folder ```features``` <br>
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
