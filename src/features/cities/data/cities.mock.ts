@@ -1,4 +1,5 @@
 import { City } from "../types/city.types";
+import { OfficeSpace } from "@/features/offices/data/OfficeSpace.mock";
 
 const cityNames = 
  [
@@ -43,7 +44,7 @@ const cityNames =
 ];
 
 export const cities:City[] = cityNames.map((name, i) => {
-//   const officeCount = officeSpaces.filter((space => space.location === name).length;
+  const officeCount = OfficeSpace.filter((space) => space.location === name).length;
   
 //random angka antara 1 sampai 10 dari chat GPT
 // const getRandomInt = (min, max) => {
@@ -54,7 +55,8 @@ export const cities:City[] = cityNames.map((name, i) => {
   return {
     id: i + 1,
     name,
-    officeCount: 1,
+    // officeCount: 1,
+    officeCount: officeCount,
     // image: `/assets/images/thumbnails/thumbnails-${(i % 3)+1}.png`,
     image: `/assets/images/thumbnails/thumbnails-${i + 1}.png`,
     slug: name.toLowerCase().replace(/\s+/g,"-"), //Jakarta Pusat -> jakarta-pusat

@@ -1,5 +1,8 @@
 import Navbar from "@/components/Navbar";
 
+export const metadata = {
+  title: 'Office - Web Rental Kantor',
+};
 
 
 export default function OfficeSpaceDetailPage(){
