@@ -1,7 +1,27 @@
-"use client";
+// "use client";
 import Navbar from "@/components/Navbar";
+import { cities } from "@/features/cities/data/cities.mock";
+import OfficeSpaceCard from "@/features/offices/components/OfficeSpaceCard";
+import { OfficeSpace } from "@/features/offices/data/OfficeSpace.mock";
+import { notFound } from "next/navigation";
 
-export default function CityPage() {
+export const metadata = {
+  title: 'City - Web Rental Kantor',
+};
+
+type Props = {
+  params:{slug:string};
+};
+
+
+export default function CityPage({ params }: Props) {
+  const city = cities.find((c)=> c.slug === params.slug);
+  if(!city) return notFound ();
+
+const cityOffices = OfficeSpace.filter(
+  (space) => space.location === city.name
+)
+
   return (
 <>
   <Navbar />
@@ -13,8 +33,11 @@ export default function CityPage() {
         className="relative flex flex-col w-full max-w-[650px] h-fit rounded-[30px] border border-[#E0DEF7] p-10 gap-[30px] bg-white mt-[70px] ml-[calc((100%-1130px)/2)] z-10"
       >
         <h1 className="font-extrabold text-[50px] leading-[60px]">
-          Great Office in <br />{" "}
-          <span className="text-[#0D903A]">Jakarta Pusat City</span>
+          Kantor yang bagus di <br />{" "}
+          <span className="text-[#0D903A]">
+            {/* Jakarta Pusat City */}
+            {city.name} City           
+            </span>
         </h1>
         <p className="text-lg leading-8 text-[#000929]">
           Kantor yang tepat dapat memberikan impact pekerjaan menjadi lebih baik
@@ -40,428 +63,23 @@ export default function CityPage() {
     <h2 className="font-bold text-[32px] leading-[48px] text-nowrap">
       Browse Offices
     </h2>
-    <div className="grid grid-cols-3 gap-[30px]">
-      <a href="details.html" className="card">
-        <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
-          <div className="thumbnail-container relative w-full h-[200px]">
-            <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-              Popular
-            </p>
-            <img
-              src="/assets/images/thumbnails/thumbnails-1.png"
-              className="w-full h-full object-cover"
-              alt="thumbnails"
-            />
-          </div>
-          <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
-            <h3 className="line-clamp-2 font-bold text-[22px] leading-[36px] h-[72px]">
-              Angga Park Central Master Silicon Valley Star Class
-            </h3>
-            <div className="flex items-center justify-between">
-              <p className="font-semibold text-xl leading-[30px]">
-                Rp 18.560.000
-              </p>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">20 days</p>
-                <img
-                  src="/assets/images/icons/clock.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/location.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Jakarta Pusat</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">4.5/5</p>
-                <img
-                  src="/assets/images/icons/Star 1.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/wifi.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Fast-Connection</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/security-user.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Secure 100%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="details-fully-booked.html" className="card">
-        <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
-          <div className="thumbnail-container relative w-full h-[200px]">
-            <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-              Popular
-            </p>
-            <img
-              src="/assets/images/thumbnails/thumbnails-3.png"
-              className="w-full h-full object-cover"
-              alt="thumbnails"
-            />
-          </div>
-          <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
-            <h3 className="line-clamp-2 font-bold text-[22px] leading-[36px] h-[72px]">
-              Masayoshi Future Space
-            </h3>
-            <div className="flex items-center justify-between">
-              <p className="font-semibold text-xl leading-[30px]">
-                Rp 18.560.000
-              </p>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">20 days</p>
-                <img
-                  src="/assets/images/icons/clock.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/location.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Jakarta Pusat</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">4.5/5</p>
-                <img
-                  src="/assets/images/icons/Star 1.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/wifi.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Fast-Connection</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/security-user.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Secure 100%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="details-closed.html" className="card">
-        <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
-          <div className="thumbnail-container relative w-full h-[200px]">
-            <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-              Popular
-            </p>
-            <img
-              src="/assets/images/thumbnails/thumbnails-4.png"
-              className="w-full h-full object-cover"
-              alt="thumbnails"
-            />
-          </div>
-          <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
-            <h3 className="line-clamp-2 font-bold text-[22px] leading-[36px] h-[72px]">
-              Angga Park Central Master Silicon Valley Star Class
-            </h3>
-            <div className="flex items-center justify-between">
-              <p className="font-semibold text-xl leading-[30px]">
-                Rp 18.560.000
-              </p>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">20 days</p>
-                <img
-                  src="/assets/images/icons/clock.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/location.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Jakarta Pusat</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">4.5/5</p>
-                <img
-                  src="/assets/images/icons/Star 1.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/wifi.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Fast-Connection</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/security-user.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Secure 100%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="details.html" className="card">
-        <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
-          <div className="thumbnail-container relative w-full h-[200px]">
-            <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-              Popular
-            </p>
-            <img
-              src="/assets/images/thumbnails/thumbnails-5.png"
-              className="w-full h-full object-cover"
-              alt="thumbnails"
-            />
-          </div>
-          <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
-            <h3 className="line-clamp-2 font-bold text-[22px] leading-[36px] h-[72px]">
-              Angga Park Central Master Silicon Valley Star Class
-            </h3>
-            <div className="flex items-center justify-between">
-              <p className="font-semibold text-xl leading-[30px]">
-                Rp 18.560.000
-              </p>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">20 days</p>
-                <img
-                  src="/assets/images/icons/clock.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/location.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Jakarta Pusat</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">4.5/5</p>
-                <img
-                  src="/assets/images/icons/Star 1.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/wifi.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Fast-Connection</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/security-user.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Secure 100%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="details-closed.html" className="card">
-        <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
-          <div className="thumbnail-container relative w-full h-[200px]">
-            <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-              Popular
-            </p>
-            <img
-              src="/assets/images/thumbnails/thumbnails-6.png"
-              className="w-full h-full object-cover"
-              alt="thumbnails"
-            />
-          </div>
-          <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
-            <h3 className="line-clamp-2 font-bold text-[22px] leading-[36px] h-[72px]">
-              Masayoshi Future Space
-            </h3>
-            <div className="flex items-center justify-between">
-              <p className="font-semibold text-xl leading-[30px]">
-                Rp 18.560.000
-              </p>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">20 days</p>
-                <img
-                  src="/assets/images/icons/clock.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/location.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Jakarta Pusat</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">4.5/5</p>
-                <img
-                  src="/assets/images/icons/Star 1.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/wifi.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Fast-Connection</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/security-user.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Secure 100%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="details-fully-booked.html" className="card">
-        <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
-          <div className="thumbnail-container relative w-full h-[200px]">
-            <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-              Popular
-            </p>
-            <img
-              src="/assets/images/thumbnails/thumbnails-2.png"
-              className="w-full h-full object-cover"
-              alt="thumbnails"
-            />
-          </div>
-          <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
-            <h3 className="line-clamp-2 font-bold text-[22px] leading-[36px] h-[72px]">
-              Angga Park Central Master Silicon Valley Star Class
-            </h3>
-            <div className="flex items-center justify-between">
-              <p className="font-semibold text-xl leading-[30px]">
-                Rp 18.560.000
-              </p>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">20 days</p>
-                <img
-                  src="/assets/images/icons/clock.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/location.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Jakarta Pusat</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <p className="font-semibold">4.5/5</p>
-                <img
-                  src="/assets/images/icons/Star 1.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-              </div>
-            </div>
-            <hr className="border-[#F6F5FD]" />
-            <div className="flex items-center justify-between">
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/wifi.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Fast-Connection</p>
-              </div>
-              <div className="flex items-center justify-end gap-[6px]">
-                <img
-                  src="/assets/images/icons/security-user.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <p className="font-semibold">Secure 100%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
+ 
+ 
+      {cityOffices.length > 0 ? (
+        <div className="grid grid-cols-3 gap-[30px]">
+      {cityOffices.map((space) => (
+        <OfficeSpaceCard key={space.id} space={space} />
+      ))}
+
+      </div>
+
+      ) : (
+        <p className="text-lg text-gray-500">
+          Tidak Ada Ruang Kantor Tersedia di Kota Ini
+        </p>
+      )}
+
+  
   </section>
 
 </>

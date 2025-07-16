@@ -9,6 +9,7 @@
 - Template shyakit : firstoffice <br>
 
 akses link city : ```http://localhost:3000/city/jakarta-pusat``` <br>
+akses link office : ```http://localhost:3000/office/asal-kantor``` <br>
 
 untuk Route silahkan menggunakan folder ```app``` <br>
 untuk Logic, data dan UI silahkan menggunakan folder ```features``` <br>
