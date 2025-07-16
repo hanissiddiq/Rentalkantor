@@ -16,7 +16,7 @@ export const OfficeSpace: OfficeSpace[] = [
       "/assets/images/thumbnails/thumbnail-details-2.png",
       "/assets/images/thumbnails/thumbnail-details-3.png",
       ],
-    features: ["Wi-Fi", "Air Conditioning", "Parking","Extra Snacks","Coffee","Compact"],
+    features: ["Wi-Fi", "100% Secure", "Parking","Extra Snacks","Coffee","Compact"],
     salesContact: [
       {
         name: "John Doe",
@@ -48,7 +48,7 @@ export const OfficeSpace: OfficeSpace[] = [
       "/assets/images/thumbnails/thumbnail-details-2.png",
       "/assets/images/thumbnails/thumbnail-details-3.png",
       ],
-    features: ["Wi-Fi", "Air Conditioning", "Parking","Extra Snacks","Coffee","Compact"],
+    features: ["Wi-Fi", "100% Secure", "Parking","Extra Snacks","Coffee","Compact"],
     salesContact: [
       {
         name: "Dinda Rahmadana",
@@ -69,7 +69,7 @@ export const OfficeSpace: OfficeSpace[] = [
     title: "Ambo Office",
     slug: "ambo-office",
     price: 1300000,
-    duration: "5 Hari",
+    duration: "3 Hari",
     address: "Jl. Ahmad Yani, Kota Padang. SUMBAR 24351",
     about: "Simple office with basic amenities.",
     location: "Padang",
@@ -80,7 +80,7 @@ export const OfficeSpace: OfficeSpace[] = [
       "/assets/images/thumbnails/thumbnail-details-2.png",
       "/assets/images/thumbnails/thumbnail-details-3.png",
       ],
-    features: ["Wi-Fi", "Air Conditioning", "Parking","Extra Snacks","Coffee","Compact"],
+    features: ["Wi-Fi", "100% Secure", "Parking","Extra Snacks","Coffee","Compact"],
     salesContact: [
       {
         name: "Dinda Rahmadana",

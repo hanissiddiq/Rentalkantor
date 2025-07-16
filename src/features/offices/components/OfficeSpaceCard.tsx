@@ -1,9 +1,11 @@
 import { OfficeSpace } from "../types/OfficeSpace.types";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function OfficeSpaceCard({space}:{space:OfficeSpace}) {
   return (
-     <a href="details.html" className="card">
+
+      <Link href={`/office/${space.slug}`} className="card">
         <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
           <div className="thumbnail-container relative w-full h-[200px]">
             <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
@@ -103,11 +105,15 @@ export default function OfficeSpaceCard({space}:{space:OfficeSpace}) {
                   className="w-6 h-6"
                   alt="icon"
                 />
-                <p className="font-semibold">Secure 100%</p>
+                
+                <p className="font-semibold">
+                  {/* Secure 100% */}
+                  {space.features[1]}                  
+                  </p>
               </div>
             </div>
           </div>
         </div>
-      </a>
+      </Link>
   );
 }

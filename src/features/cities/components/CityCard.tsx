@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { City } from "../types/city.types";
+import Image from "next/image";
 
 export default function CityCard({city} :{city: City}) {
   return (
@@ -12,7 +13,9 @@ export default function CityCard({city} :{city: City}) {
                 </h3>
                 <p className="text-white">{city.officeCount} Offices</p>
               </div>
-              <img
+              <Image
+                width={230}
+                height={300}
                 src={city.image}
                 // src="/assets/images/thumbnails/thumbnails-2.png"
                 className="absolute w-full h-full object-cover"
